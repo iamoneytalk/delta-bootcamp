@@ -21,7 +21,6 @@
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -33,7 +32,6 @@
     cursor: crosshair;
   }
 
-  /* NOISE OVERLAY */
   body::before {
     content: '';
     position: fixed;
@@ -52,6 +50,7 @@
     position: relative;
     overflow: hidden;
     padding: 60px 24px;
+    background: var(--black);
   }
 
   .hero-bg {
@@ -77,19 +76,6 @@
     z-index: 2;
     text-align: center;
     max-width: 900px;
-  }
-
-  .badge {
-    display: inline-block;
-    border: 1px solid var(--gold-dim);
-    color: var(--gold);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    padding: 6px 16px;
-    margin-bottom: 36px;
-    animation: fadeUp 0.8s ease both;
   }
 
   .hero-eyebrow {
@@ -121,8 +107,7 @@
     content: '';
     position: absolute;
     bottom: 4px;
-    left: 0;
-    right: 0;
+    left: 0; right: 0;
     height: 3px;
     background: var(--gold);
     transform: scaleX(0);
@@ -139,10 +124,7 @@
     animation: fadeUp 0.8s 0.4s ease both;
   }
 
-  .hero-sub strong {
-    color: var(--white);
-    font-weight: 500;
-  }
+  .hero-sub strong { color: var(--white); font-weight: 500; }
 
   .hero-cta-group {
     display: flex;
@@ -213,13 +195,6 @@
     animation: fadeUp 0.8s 0.6s ease both;
   }
 
-  .price-old {
-    font-size: 20px;
-    color: var(--white-dim);
-    text-decoration: line-through;
-    font-family: 'JetBrains Mono', monospace;
-  }
-
   .price-new {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 52px;
@@ -249,11 +224,11 @@
     animation-delay: 1s;
   }
 
-  /* ---- STATS ---- */
+  /* ---- STATS — fond noir ---- */
   .stats-section {
     border-top: 1px solid rgba(201,168,76,0.1);
     border-bottom: 1px solid rgba(201,168,76,0.1);
-    background: var(--dark);
+    background: var(--black);
     padding: 48px 24px;
   }
 
@@ -265,9 +240,7 @@
     gap: 32px;
   }
 
-  .stat-item {
-    text-align: center;
-  }
+  .stat-item { text-align: center; }
 
   .stat-num {
     font-family: 'Bebas Neue', sans-serif;
@@ -286,6 +259,24 @@
   }
 
   /* ---- SECTIONS COMMUNES ---- */
+  /* fond sombre (dark) pour les sections sur fond clair */
+  .section-dark {
+    background: var(--dark);
+    padding: 100px 24px;
+  }
+
+  /* fond noir pour les sections sur fond foncé */
+  .section-black {
+    background: var(--black);
+    padding: 100px 24px;
+  }
+
+  .section-inner {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  /* Ancien .section pour compatibilité */
   .section {
     padding: 100px 24px;
     max-width: 960px;
@@ -316,17 +307,7 @@
     max-width: 600px;
   }
 
-  /* ---- PROOF SECTION ---- */
-  .proof-section {
-    background: var(--dark);
-    padding: 100px 24px;
-  }
-
-  .proof-inner {
-    max-width: 960px;
-    margin: 0 auto;
-  }
-
+  /* ---- PROOF CARDS ---- */
   .proof-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -337,7 +318,7 @@
   .proof-card {
     background: var(--dark2);
     border: 1px solid rgba(201,168,76,0.12);
-    padding: 28px;
+    padding: 20px;
     position: relative;
     overflow: hidden;
     transition: border-color 0.3s;
@@ -365,22 +346,6 @@
     margin-bottom: 12px;
   }
 
-  .proof-pnl {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 42px;
-    color: var(--green);
-    line-height: 1;
-    margin-bottom: 8px;
-  }
-
-  .proof-pnl.loss { color: var(--red); }
-
-  .proof-detail {
-    font-size: 13px;
-    color: var(--white-dim);
-    line-height: 1.6;
-  }
-
   .proof-asset {
     display: inline-block;
     margin-top: 12px;
@@ -391,26 +356,7 @@
     padding: 3px 10px;
   }
 
-  /* Placeholder for screenshot */
-  .proof-screenshot {
-    background: var(--dark3);
-    border: 1px dashed rgba(201,168,76,0.2);
-    border-radius: 0;
-    height: 180px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    color: var(--gold-dim);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 1px;
-  }
-
-  .proof-screenshot svg { opacity: 0.4; }
-
-  /* TESTIMONIALS */
+  /* ---- TESTIMONIALS ---- */
   .testi-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -419,10 +365,9 @@
   }
 
   .testi-card {
-    background: var(--dark2);
+    background: var(--dark3);
     border: 1px solid rgba(255,255,255,0.06);
     padding: 28px;
-    position: relative;
     transition: border-color 0.3s;
   }
 
@@ -437,13 +382,16 @@
     margin-bottom: 20px;
   }
 
-  .testi-quote::before { content: '"'; color: var(--gold); font-size: 24px; line-height: 0; vertical-align: -8px; margin-right: 4px; }
-
-  .testi-author {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+  .testi-quote::before {
+    content: '"';
+    color: var(--gold);
+    font-size: 24px;
+    line-height: 0;
+    vertical-align: -8px;
+    margin-right: 4px;
   }
+
+  .testi-author { display: flex; align-items: center; gap: 12px; }
 
   .testi-avatar {
     width: 36px;
@@ -455,21 +403,13 @@
     font-family: 'Bebas Neue', sans-serif;
     font-size: 16px;
     color: var(--black);
+    flex-shrink: 0;
   }
 
-  .testi-name {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--white);
-  }
+  .testi-name { font-size: 13px; font-weight: 500; color: var(--white); }
+  .testi-sub { font-size: 11px; color: var(--white-dim); font-family: 'JetBrains Mono', monospace; }
 
-  .testi-sub {
-    font-size: 11px;
-    color: var(--white-dim);
-    font-family: 'JetBrains Mono', monospace;
-  }
-
-  /* ---- WHAT YOU LEARN ---- */
+  /* ---- LEARN GRID ---- */
   .learn-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -503,18 +443,8 @@
     margin-top: 2px;
   }
 
-  .learn-text h4 {
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--white);
-    margin-bottom: 6px;
-  }
-
-  .learn-text p {
-    font-size: 13px;
-    color: var(--white-dim);
-    line-height: 1.6;
-  }
+  .learn-text h4 { font-size: 15px; font-weight: 500; color: var(--white); margin-bottom: 6px; }
+  .learn-text p { font-size: 13px; color: var(--white-dim); line-height: 1.6; }
 
   /* ---- PLANNING ---- */
   .planning-list {
@@ -525,7 +455,7 @@
   }
 
   .day-item {
-    background: var(--dark);
+    background: var(--dark2);
     border-left: 3px solid transparent;
     padding: 24px 28px;
     display: grid;
@@ -535,39 +465,13 @@
     transition: all 0.2s;
   }
 
-  .day-item:hover {
-    border-left-color: var(--gold);
-    background: var(--dark2);
-  }
+  .day-item:hover { border-left-color: var(--gold); background: var(--dark3); }
 
-  .day-label {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
-    color: var(--gold);
-    line-height: 1;
-  }
-
-  .day-time {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    color: var(--white-dim);
-    margin-top: 4px;
-  }
-
+  .day-label { font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: var(--gold); line-height: 1; }
+  .day-time { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--white-dim); margin-top: 4px; }
   .day-sessions { display: flex; flex-direction: column; gap: 12px; }
-
-  .day-session h4 {
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--white);
-    margin-bottom: 3px;
-  }
-
-  .day-session p {
-    font-size: 13px;
-    color: var(--white-dim);
-    line-height: 1.6;
-  }
+  .day-session h4 { font-size: 15px; font-weight: 500; color: var(--white); margin-bottom: 3px; }
+  .day-session p { font-size: 13px; color: var(--white-dim); line-height: 1.6; }
 
   .session-tag {
     display: inline-block;
@@ -579,6 +483,17 @@
     border: 1px solid var(--gold-dim);
     color: var(--gold);
     margin-bottom: 6px;
+  }
+
+  .planning-note {
+    margin-top: 20px;
+    padding: 16px 20px;
+    border-left: 3px solid var(--gold-dim);
+    background: var(--dark2);
+    font-size: 13px;
+    color: var(--white-dim);
+    line-height: 1.7;
+    font-style: italic;
   }
 
   /* ---- INCLUDED ---- */
@@ -596,6 +511,7 @@
     transition: all 0.3s;
     position: relative;
     overflow: hidden;
+    background: var(--dark2);
   }
 
   .included-item::after {
@@ -610,24 +526,9 @@
   .included-item:hover { border-color: var(--gold); }
   .included-item:hover::after { opacity: 1; }
 
-  .included-emoji {
-    font-size: 28px;
-    margin-bottom: 12px;
-    display: block;
-  }
-
-  .included-title {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--white);
-    margin-bottom: 6px;
-  }
-
-  .included-desc {
-    font-size: 12px;
-    color: var(--white-dim);
-    line-height: 1.5;
-  }
+  .included-emoji { font-size: 28px; margin-bottom: 12px; display: block; }
+  .included-title { font-size: 14px; font-weight: 500; color: var(--white); margin-bottom: 6px; }
+  .included-desc { font-size: 12px; color: var(--white-dim); line-height: 1.5; }
 
   /* ---- PRICING ---- */
   .pricing-section {
@@ -673,34 +574,11 @@
     vertical-align: super;
   }
 
-  .pricing-or {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    color: var(--white-dim);
-    margin: 8px 0;
-    letter-spacing: 2px;
-  }
+  .pricing-or { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--white-dim); margin: 8px 0; letter-spacing: 2px; }
+  .pricing-alt { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--white-dim); margin-bottom: 32px; }
+  .pricing-divider { height: 1px; background: rgba(255,255,255,0.06); margin: 32px 0; }
 
-  .pricing-alt {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 28px;
-    color: var(--white-dim);
-    margin-bottom: 32px;
-  }
-
-  .pricing-divider {
-    height: 1px;
-    background: rgba(255,255,255,0.06);
-    margin: 32px 0;
-  }
-
-  .payment-methods {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 32px;
-    text-align: left;
-  }
+  .payment-methods { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; text-align: left; }
 
   .payment-row {
     display: flex;
@@ -713,27 +591,9 @@
   }
 
   .payment-row:hover { border-color: rgba(201,168,76,0.2); }
-
-  .payment-icon {
-    width: 32px;
-    text-align: center;
-    font-size: 18px;
-  }
-
-  .payment-label {
-    flex: 1;
-    font-size: 13px;
-    color: var(--white);
-    font-weight: 500;
-  }
-
-  .payment-link {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    color: var(--gold);
-    text-decoration: none;
-  }
-
+  .payment-icon { width: 32px; text-align: center; font-size: 18px; }
+  .payment-label { flex: 1; font-size: 13px; color: var(--white); font-weight: 500; }
+  .payment-link { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--gold); text-decoration: none; }
   .payment-link:hover { text-decoration: underline; }
 
   .crypto-addr {
@@ -763,8 +623,6 @@
     display: block;
     text-align: center;
     transition: all 0.2s;
-    position: relative;
-    overflow: hidden;
   }
 
   .cta-main:hover {
@@ -773,13 +631,7 @@
     box-shadow: 0 16px 48px rgba(201,168,76,0.35);
   }
 
-  .cta-note {
-    font-size: 12px;
-    color: var(--white-dim);
-    font-family: 'JetBrains Mono', monospace;
-    letter-spacing: 1px;
-    margin-top: 16px;
-  }
+  .cta-note { font-size: 12px; color: var(--white-dim); font-family: 'JetBrains Mono', monospace; letter-spacing: 1px; margin-top: 16px; }
 
   .guarantee-badge {
     display: flex;
@@ -793,17 +645,13 @@
   }
 
   .guarantee-badge svg { min-width: 24px; color: var(--green); }
-
-  .guarantee-text {
-    font-size: 12px;
-    color: var(--white-dim);
-    line-height: 1.5;
-  }
+  .guarantee-text { font-size: 12px; color: var(--white-dim); line-height: 1.5; }
 
   /* ---- QUOTE ---- */
   .quote-section {
     padding: 80px 24px;
     text-align: center;
+    background: var(--black);
     border-top: 1px solid rgba(201,168,76,0.08);
     border-bottom: 1px solid rgba(201,168,76,0.08);
   }
@@ -814,22 +662,11 @@
     color: var(--white);
     max-width: 760px;
     margin: 0 auto;
-    line-height: 1.1;
+    line-height: 1.2;
   }
 
-  .quote-text em {
-    color: var(--gold);
-    font-style: normal;
-  }
-
-  .quote-attr {
-    margin-top: 24px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    color: var(--white-dim);
-    letter-spacing: 3px;
-    text-transform: uppercase;
-  }
+  .quote-text em { color: var(--gold); font-style: normal; }
+  .quote-attr { margin-top: 24px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--white-dim); letter-spacing: 3px; text-transform: uppercase; }
 
   /* ---- FOOTER ---- */
   footer {
@@ -839,12 +676,7 @@
     border-top: 1px solid rgba(255,255,255,0.05);
   }
 
-  footer p {
-    font-size: 12px;
-    color: var(--white-dim);
-    font-family: 'JetBrains Mono', monospace;
-    letter-spacing: 1px;
-  }
+  footer p { font-size: 12px; color: var(--white-dim); font-family: 'JetBrains Mono', monospace; letter-spacing: 1px; line-height: 1.8; }
 
   /* ---- ANIMATIONS ---- */
   @keyframes fadeUp {
@@ -852,38 +684,26 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  @keyframes lineReveal {
-    to { transform: scaleX(1); }
-  }
+  @keyframes lineReveal { to { transform: scaleX(1); } }
 
   @keyframes pulse {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.6; }
   }
 
-  /* SCROLL ANIMATIONS */
   .reveal {
     opacity: 0;
     transform: translateY(24px);
     transition: opacity 0.7s ease, transform 0.7s ease;
   }
 
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
 
   /* TICKER */
-  .ticker-wrap {
-    background: var(--gold);
-    color: var(--black);
-    overflow: hidden;
-    padding: 10px 0;
-  }
+  .ticker-wrap { background: var(--gold); color: var(--black); overflow: hidden; padding: 10px 0; }
 
   .ticker-track {
     display: flex;
-    gap: 0;
     animation: ticker 20s linear infinite;
     white-space: nowrap;
   }
@@ -907,22 +727,6 @@
     .pricing-card { padding: 36px 24px; }
   }
 </style>
-  <!-- LIGHTBOX -->
-<div id="lightbox" onclick="closeLight()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:99999;align-items:center;justify-content:center;cursor:zoom-out;">
-  <img id="lightbox-img" src="" style="max-width:90vw;max-height:90vh;object-fit:contain;box-shadow:0 0 60px rgba(201,168,76,0.2);">
-</div>
-
-<script>
-  function openLight(card) {
-    const img = card.querySelector('img');
-    document.getElementById('lightbox-img').src = img.src;
-    const lb = document.getElementById('lightbox');
-    lb.style.display = 'flex';
-  }
-  function closeLight() {
-    document.getElementById('lightbox').style.display = 'none';
-  }
-</script>
 </head>
 <body>
 
@@ -942,7 +746,7 @@
   </div>
 </div>
 
-<!-- HERO -->
+<!-- ① HERO — fond noir -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
@@ -961,7 +765,7 @@
         <div class="price-label">Accès complet</div>
         <div class="price-new">799€</div>
       </div>
-      <div style="width: 1px; height: 48px; background: rgba(201,168,76,0.2);"></div>
+      <div style="width:1px;height:48px;background:rgba(201,168,76,0.2);"></div>
       <div>
         <div class="price-label">ou</div>
         <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--white-dim);">935 USDT</div>
@@ -971,11 +775,11 @@
   </div>
 </section>
 
-<!-- STATS -->
+<!-- ② STATS — fond noir -->
 <div class="stats-section">
   <div class="stats-grid">
     <div class="stat-item">
-      <div class="stat-num">+2.0</div>
+      <div class="stat-num">+2.5</div>
       <div class="stat-label">RR minimum visé</div>
     </div>
     <div class="stat-item">
@@ -993,70 +797,69 @@
   </div>
 </div>
 
-<!-- WHAT YOU LEARN -->
-<section class="section">
-  <div class="reveal">
-    <div class="section-label">Le système</div>
-    <h2 class="section-title">CE QUE TU VAS<br>MAÎTRISER</h2>
+<!-- ③ CE QUE TU VAS MAÎTRISER — fond sombre -->
+<div class="section-dark">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Le système</div>
+      <h2 class="section-title">CE QUE TU VAS<br>MAÎTRISER</h2>
+    </div>
+    <div class="learn-grid reveal">
+      <div class="learn-item">
+        <div class="learn-icon">01</div>
+        <div class="learn-text">
+          <h4>Lecture fondamentale des marchés</h4>
+          <p>Comprendre pourquoi le marché bouge avant de chercher un point d'entrée et ne plus trader au hasard.</p>
+        </div>
+      </div>
+      <div class="learn-item">
+        <div class="learn-icon">02</div>
+        <div class="learn-text">
+          <h4>Construction du biais macro</h4>
+          <p>Transformer une lecture fondamentale en plan de trading concret. Définir un biais clair en fonction du contexte économique, des flux et du sentiment de marché.</p>
+        </div>
+      </div>
+      <div class="learn-item">
+        <div class="learn-icon">03</div>
+        <div class="learn-text">
+          <h4>Transformer la macro en scénario de trading</h4>
+          <p>Passer d'une idée fondamentale à un plan clair : actif à surveiller, direction, zone d'intervention, timing, invalidation.</p>
+        </div>
+      </div>
+      <div class="learn-item">
+        <div class="learn-icon">04</div>
+        <div class="learn-text">
+          <h4>Zones institutionnelles & niveaux clés</h4>
+          <p>Identifier les zones où le marché peut réellement réagir. Pivots, moyennes, trendlines dynamiques, niveaux de liquidité.</p>
+        </div>
+      </div>
+      <div class="learn-item">
+        <div class="learn-icon">05</div>
+        <div class="learn-text">
+          <h4>Exécution technique précise</h4>
+          <p>Structurer tes trades avec un RR supérieur à 2.5 / 3, calibrer ton risque et éviter les entrées émotionnelles.</p>
+        </div>
+      </div>
+      <div class="learn-item">
+        <div class="learn-icon">06</div>
+        <div class="learn-text">
+          <h4>Gestion du risque & psychologie</h4>
+          <p>Lire l'état mental du marché avant chaque session pour ne jamais trader contre le flux.</p>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="learn-grid reveal">
-    <div class="learn-item">
-      <div class="learn-icon">01</div>
-      <div class="learn-text">
-        <h4>Lecture fondamentale des marchés</h4>
-        <p>Comprendre pourquoi le marché bouge avant de chercher un point d’entrée et ne plus trader au hasard.</p>
-      </div>
-    </div>
-    <div class="learn-item">
-      <div class="learn-icon">02</div>
-      <div class="learn-text">
-        <h4>Construction du biais macro</h4>
-        <p>Transformer une lecture fondamentale en plan de trading concret. Définir un biais clair en fonction du contexte économique, des flux et du sentiment de marché.</p>
-      </div>
-    </div>
-    <div class="learn-item">
-      <div class="learn-icon">03</div>
-      <div class="learn-text">
-        <h4>Transformer la macro en scénario de trading</h4>
-        <p>Passer d’une idée fondamentale à un plan clair : actif à surveiller, direction, zone d’intervention, timing, invalidation</p>
-      </div>
-    </div>
-    <div class="learn-item">
-      <div class="learn-icon">04</div>
-      <div class="learn-text">
-        <h4>Zones institutionnelles & niveaux clés</h4>
-        <p>Identifier les zones où le marché peut réellement réagir. Pivots, moyennes, trendlines dynamiques, niveaux de liquidité. </p>
-      </div>
-    </div>
-    <div class="learn-item">
-      <div class="learn-icon">05</div>
-      <div class="learn-text">
-        <h4>Exécution technique précise</h4>
-        <p>Structurer tes trades avec un RR supérieur à 2.5 / 3, calibrer ton risque et éviter les entrées émotionnelles.</p>
-      </div>
-    </div>
-    <div class="learn-item">
-      <div class="learn-icon">06</div>
-      <div class="learn-text">
-        <h4>Gestion du risque & psychologie</h4>
-        <p>Lire l'état mental du marché avant chaque session pour ne jamais trader contre le flux.</p>
-      </div>
-    </div>
-  </div>
-</section>
-  
-<!-- PROOF SECTION -->
-<section class="proof-section">
-  <div class="proof-inner">
+</div>
 
-    <!-- TITRE -->
+<!-- ④ PREUVES & TÉMOIGNAGES — fond noir -->
+<div class="section-black">
+  <div class="section-inner">
     <div class="reveal">
       <div class="section-label">Preuves & résultats</div>
       <h2 class="section-title">LES CHIFFRES<br>NE MENTENT PAS</h2>
       <p class="section-desc">Résultats réels sur compte live. Gains des membres sur le marché réel.</p>
     </div>
 
-    <!-- PREUVES IMAGES -->
     <div class="proof-grid reveal">
       <div class="proof-card" onclick="openLight(this)" style="cursor:zoom-in;">
         <div class="proof-type">Trade réel · Compte live</div>
@@ -1075,8 +878,7 @@
       </div>
     </div>
 
-    <!-- TÉMOIGNAGES -->
-    <div style="margin-top: 60px;">
+    <div style="margin-top:60px;">
       <div class="section-label reveal">Ce qu'ils disent</div>
       <div class="testi-grid reveal">
         <div class="testi-card">
@@ -1111,117 +913,120 @@
         </div>
       </div>
     </div>
-
-
-<!-- PLANNING -->
-<section class="section" id="planning" style="padding-top: 0;">
-  <div class="reveal">
-    <div class="section-label">Programme</div>
-    <h2 class="section-title">UNE SEMAINE<br>POUR CHANGER<br>TA VISION</h2>
   </div>
-  <div class="planning-list reveal">
-    <div class="day-item">
-      <div>
-        <div class="day-label">Dimanche</div>
-        <div class="day-time">17h00</div>
-      </div>
-      <div class="day-sessions">
-        <div class="day-session">
-          <div class="session-tag">Ouverture</div>
-          <h4>Introduction & Structure de la Stratégie DELTA</h4>
-          <p>Présentation complète et comportement du prix</p>
-        </div>
-      </div>
-    </div>
-    <div class="day-item">
-      <div>
-        <div class="day-label">Lundi</div>
-        <div class="day-time">20h00</div>
-      </div>
-      <div class="day-sessions">
-        <div class="day-session">
-          <div class="session-tag">Cours</div>
-          <h4>Les règles d'or de la stratégie Delta</h4>
-          <p>Comment lire le marché, identifier le bon timing et appliquer la logique d'entrée DELTA.</p>
-        </div>
-      </div>
-    </div>
-    <div class="day-item">
-      <div>
-        <div class="day-label">Mardi</div>
-        <div class="day-time">14h · 20h</div>
-      </div>
-      <div class="day-sessions">
-        <div class="day-session">
-          <div class="session-tag">Live Europe</div>
-          <h4>Analyse en direct — Session Européenne</h4>
-          <p>Opportunités en temps réel. Observer la prise de décision face au marché.</p>
-        </div>
-        <div class="day-session">
-          <div class="session-tag">Cours</div>
-          <h4>Construire son biais fondamentale avec Delta</h4>
-          <p>Apprendre à lire la macro, les flux et le contexte de marché pour définir une direction claire avant d’exécuter.</p>
-        </div>
-      </div>
-    </div>
-    <div class="day-item">
-      <div>
-        <div class="day-label">Mercredi</div>
-        <div class="day-time">14h · 20h</div>
-      </div>
-      <div class="day-sessions">
-        <div class="day-session">
-          <div class="session-tag">Live</div>
-          <h4>Mouvements de marché en temps réel</h4>
-          <p>Réflexion collective sur les setups potentiels en direct.</p>
-        </div>
-        <div class="day-session">
-          <div class="session-tag">Cours</div>
-          <h4>Arbitrage & rotations de marché</h4>
-          <p>Comprendre où le capital se déplace pour repérer les meilleures opportunités.</p>
-        </div>
-      </div>
-    </div>
-    <div class="day-item">
-      <div>
-        <div class="day-label">Jeudi</div>
-        <div class="day-time">14h30 · 20h</div>
-      </div>
-      <div class="day-sessions">
-        <div class="day-session">
-          <div class="session-tag">Live US</div>
-          <h4>Session Américaine — Flux macro & annonces</h4>
-          <p>Comprendre les réactions du marché face aux données économiques.</p>
-        </div>
-        <div class="day-session">
-          <div class="session-tag">Cours</div>
-          <h4>Maîtriser les trades de retournement</h4>
-          <p>Identifier les zones où le marché peut se retourner et construire un trade propre.</p>
-        </div>
-      </div>
-    </div>
-    <div class="day-item" style="border-left: 3px solid var(--gold);">
-      <div>
-        <div class="day-label">Dimanche</div>
-        <div class="day-time">16h00</div>
-      </div>
-      <div class="day-sessions">
-        <div class="day-session">
-          <div class="session-tag" style="border-color: var(--gold); color: var(--gold);">Session Finale</div>
-          <h4>Q&A · Bilan · Optimisation</h4>
-          <p>Questions-réponses, bilan de la semaine et calibration de la stratégie pour la suite.</p>
-        </div>
-      </div>
-    </div>
-    <div class="learn-text">
-        <p>Si les conditions de marché ne permettent pas une exécution optimale pendant la semaine du bootcamp, des lives complémentaires seront ajoutés afin de renforcer la compréhension, revoir les scénarios et consolider l’application de la méthode DELTA.</p>
-      </div>
-  </div>
-</section>
+</div>
 
-<!-- INCLUDED -->
-<section class="proof-section">
-  <div class="proof-inner">
+<!-- ⑤ PLANNING — fond sombre -->
+<div class="section-dark" id="planning">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">Programme</div>
+      <h2 class="section-title">UNE SEMAINE<br>POUR CHANGER<br>TA VISION</h2>
+    </div>
+    <div class="planning-list reveal">
+      <div class="day-item">
+        <div>
+          <div class="day-label">Dimanche</div>
+          <div class="day-time">17h00</div>
+        </div>
+        <div class="day-sessions">
+          <div class="day-session">
+            <div class="session-tag">Ouverture</div>
+            <h4>Introduction & Structure de la Stratégie DELTA</h4>
+            <p>Présentation complète et comportement du prix.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-item">
+        <div>
+          <div class="day-label">Lundi</div>
+          <div class="day-time">20h00</div>
+        </div>
+        <div class="day-sessions">
+          <div class="day-session">
+            <div class="session-tag">Cours</div>
+            <h4>Les règles d'or de la stratégie Delta</h4>
+            <p>Comment lire le marché, identifier le bon timing et appliquer la logique d'entrée DELTA.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-item">
+        <div>
+          <div class="day-label">Mardi</div>
+          <div class="day-time">14h · 20h</div>
+        </div>
+        <div class="day-sessions">
+          <div class="day-session">
+            <div class="session-tag">Live Europe</div>
+            <h4>Analyse en direct — Session Européenne</h4>
+            <p>Opportunités en temps réel. Observer la prise de décision face au marché.</p>
+          </div>
+          <div class="day-session">
+            <div class="session-tag">Cours</div>
+            <h4>Construire son biais fondamental avec Delta</h4>
+            <p>Apprendre à lire la macro, les flux et le contexte de marché pour définir une direction claire avant d'exécuter.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-item">
+        <div>
+          <div class="day-label">Mercredi</div>
+          <div class="day-time">14h · 20h</div>
+        </div>
+        <div class="day-sessions">
+          <div class="day-session">
+            <div class="session-tag">Live</div>
+            <h4>Mouvements de marché en temps réel</h4>
+            <p>Réflexion collective sur les setups potentiels en direct.</p>
+          </div>
+          <div class="day-session">
+            <div class="session-tag">Cours</div>
+            <h4>Arbitrage & rotations de marché</h4>
+            <p>Comprendre où le capital se déplace pour repérer les meilleures opportunités.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-item">
+        <div>
+          <div class="day-label">Jeudi</div>
+          <div class="day-time">14h30 · 20h</div>
+        </div>
+        <div class="day-sessions">
+          <div class="day-session">
+            <div class="session-tag">Live US</div>
+            <h4>Session Américaine — Flux macro & annonces</h4>
+            <p>Comprendre les réactions du marché face aux données économiques.</p>
+          </div>
+          <div class="day-session">
+            <div class="session-tag">Cours</div>
+            <h4>Maîtriser les trades de retournement</h4>
+            <p>Identifier les zones où le marché peut se retourner et construire un trade propre.</p>
+          </div>
+        </div>
+      </div>
+      <div class="day-item" style="border-left:3px solid var(--gold);">
+        <div>
+          <div class="day-label">Dimanche</div>
+          <div class="day-time">16h00</div>
+        </div>
+        <div class="day-sessions">
+          <div class="day-session">
+            <div class="session-tag" style="border-color:var(--gold);color:var(--gold);">Session Finale</div>
+            <h4>Q&A · Bilan · Optimisation</h4>
+            <p>Questions-réponses, bilan de la semaine et calibration de la stratégie pour la suite.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="planning-note reveal">
+      Si les conditions de marché ne permettent pas une exécution optimale pendant la semaine du bootcamp, des lives complémentaires seront ajoutés afin de renforcer la compréhension, revoir les scénarios et consolider l'application de la méthode DELTA.
+    </div>
+  </div>
+</div>
+
+<!-- ⑥ CE QUE TU REÇOIS — fond noir -->
+<div class="section-black">
+  <div class="section-inner">
     <div class="reveal">
       <div class="section-label">Inclus</div>
       <h2 class="section-title">TOUT CE QUE<br>TU REÇOIS</h2>
@@ -1245,7 +1050,7 @@
       <div class="included-item">
         <span class="included-emoji">💬</span>
         <div class="included-title">Telegram VIP</div>
-        <div class="included-desc">Accès au groupe privé des membres — pair-review, setups, feedbacks </div>
+        <div class="included-desc">Accès au groupe privé des membres — pair-review, setups, feedbacks.</div>
       </div>
       <div class="included-item">
         <span class="included-emoji">🗑</span>
@@ -1265,54 +1070,98 @@
       <div class="included-item">
         <span class="included-emoji">🔑</span>
         <div class="included-title">Accès à vie</div>
-        <div class="included-desc">Accès réservé aux prochaines sessions DELTA : une fois dans la famille, tu y restes.</div>
+        <div class="included-desc">Accès réservé aux prochaines sessions DELTA — une fois dans la famille, tu y restes.</div>
       </div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- QUOTE -->
+<!-- ⑦ QUOTE — fond noir avec bordures -->
 <div class="quote-section reveal">
   <div class="quote-text">
-    "Le Fondamentale pour <em>le biais.</em><br> DELTA pour <em>l’exécution.</em><br> La gestion du risque <em> pour durer.</em>"
+    "Le Fondamental pour <em>le biais.</em><br>DELTA pour <em>l'exécution.</em><br>La gestion du risque <em>pour durer.</em>"
   </div>
   <div class="quote-attr">— Chris Dienda</div>
 </div>
+
+  <!-- IMAGES -->
 
 <div class="proof-grid reveal">
 
   <!-- IMAGE 1 -->
   <div class="proof-card" onclick="openLight(this)">
     <div class="proof-type">Trade réel · Compte live</div>
-    <img src="screenshot1.png" style="width:100%;height:200px;object-fit:cover;cursor:zoom-in;" alt="Preuve trade">
+    <img src="Membre trade 2r laurant.png" style="width:100%;height:200px;object-fit:cover;cursor:zoom-in;" alt="Preuve trade">
     <div class="proof-asset">NAS100 · Setup DELTA</div>
   </div>
 
   <!-- IMAGE 2 -->
   <div class="proof-card" onclick="openLight(this)">
     <div class="proof-type">Trade réel · Compte live</div>
-    <img src="screenshot2.png" style="width:100%;height:200px;object-fit:cover;cursor:zoom-in;" alt="Preuve trade">
+    <img src="Membre trade 3r.png" style="width:100%;height:200px;object-fit:cover;cursor:zoom-in;" alt="Preuve trade">
     <div class="proof-asset">XAUUSD · Setup DELTA</div>
   </div>
 
   <!-- IMAGE 3 -->
   <div class="proof-card" onclick="openLight(this)">
     <div class="proof-type">Résultat membre</div>
-    <img src="screenshot3.png" style="width:100%;height:200px;object-fit:cover;cursor:zoom-in;" alt="Preuve trade">
+    <img src="Membre trade 4r.png" style="width:100%;height:200px;object-fit:cover;cursor:zoom-in;" alt="Preuve trade">
+    <div class="proof-asset">BTC · Volatilité</div>
+  </div>
+  
+  <!-- IMAGE 1 -->
+  <div class="proof-card" onclick="openLight(this)">
+    <div class="proof-type">Trade réel · Compte live</div>
+    <img src="Membre trade 2r laurant.png" style="width:100%;height:200px;object-fit:cover;cursor:zoom-in;" alt="Preuve trade">
+    <div class="proof-asset">NAS100 · Setup DELTA</div>
+  </div>
+
+  <!-- IMAGE 2 -->
+  <div class="proof-card" onclick="openLight(this)">
+    <div class="proof-type">Trade réel · Compte live</div>
+    <img src="Membre trade 3r.png" style="width:100%;height:200px;object-fit:cover;cursor:zoom-in;" alt="Preuve trade">
+    <div class="proof-asset">XAUUSD · Setup DELTA</div>
+  </div>
+
+  <!-- IMAGE 3 -->
+  <div class="proof-card" onclick="openLight(this)">
+    <div class="proof-type">Résultat membre</div>
+    <img src="Membre trade 4r.png" style="width:100%;height:200px;object-fit:cover;cursor:zoom-in;" alt="Preuve trade">
+    <div class="proof-asset">BTC · Volatilité</div>
+  </div>
+
+  <!-- IMAGE 1 -->
+  <div class="proof-card" onclick="openLight(this)">
+    <div class="proof-type">Trade réel · Compte live</div>
+    <img src="Membre trade 2r laurant.png" style="width:100%;height:200px;object-fit:cover;cursor:zoom-in;" alt="Preuve trade">
+    <div class="proof-asset">NAS100 · Setup DELTA</div>
+  </div>
+
+  <!-- IMAGE 2 -->
+  <div class="proof-card" onclick="openLight(this)">
+    <div class="proof-type">Trade réel · Compte live</div>
+    <img src="Membre trade 3r.png" style="width:100%;height:200px;object-fit:cover;cursor:zoom-in;" alt="Preuve trade">
+    <div class="proof-asset">XAUUSD · Setup DELTA</div>
+  </div>
+
+  <!-- IMAGE 3 -->
+  <div class="proof-card" onclick="openLight(this)">
+    <div class="proof-type">Résultat membre</div>
+    <img src="Membre trade 4r.png" style="width:100%;height:200px;object-fit:cover;cursor:zoom-in;" alt="Preuve trade">
     <div class="proof-asset">BTC · Volatilité</div>
   </div>
 
   <!-- AJOUTE AUTANT DE BLOCS QUE TU VEUX EN COPIANT UN BLOC CI-DESSUS -->
 
 </div>
-
-<!-- PRICING -->
+  
+<!-- ⑧ PRICING — fond sombre -->
 <section class="pricing-section" id="pricing">
   <div class="pricing-inner">
     <div class="reveal">
       <div class="section-label">Inscription</div>
       <h2 class="section-title">REJOINS<br>LE BOOTCAMP</h2>
-      <p class="section-desc" style="margin: 0 auto; text-align: center;">Une seule décision. Une semaine pour avoir un système qui fonctionne.</p>
+      <p class="section-desc" style="margin:0 auto;text-align:center;">Une seule décision. Une semaine pour avoir un système qui fonctionne.</p>
     </div>
 
     <div class="pricing-card reveal">
@@ -1352,32 +1201,47 @@
 
       <div class="guarantee-badge">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        <div class="guarantee-text">
-          Accès immédiat au groupe Telegram VIP dès validation de ta place.
-        </div>
+        <div class="guarantee-text">Accès immédiat au groupe Telegram VIP dès validation de ta place.</div>
       </div>
     </div>
 
-    <div style="margin-top: 24px; padding: 20px; border: 1px solid rgba(217,64,64,0.25); background: rgba(217,64,64,0.05);" class="reveal">
-      <p style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--red); letter-spacing: 1px; text-align: center;">
+    <div style="margin-top:24px;padding:20px;border:1px solid rgba(217,64,64,0.25);background:rgba(217,64,64,0.05);" class="reveal">
+      <p style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--red);letter-spacing:1px;text-align:center;">
         ⚠ LES INSCRIPTIONS FERMENT DÈS QUE LES SLOTS SONT REMPLIS<br>
-        <span style="color: var(--white-dim); font-size: 11px;">L'immersion démarre lundi soir à 20h</span>
+        <span style="color:var(--white-dim);font-size:11px;">L'immersion démarre lundi soir à 20h</span>
       </p>
     </div>
-    <div>
-      <p class="section-desc" style="margin: 0 auto; text-align: center;">Cette formation est proposée à des fins exclusivement pédagogiques et éducatives. Elle ne constitue ni un conseil en investissement, ni une recommandation d’achat ou de vente. Les marchés financiers comportent un risque de perte en capital, et chaque décision d’investissement reste sous l’entière responsabilité du participant.</p>
+
+    <div style="margin-top:32px;">
+      <p class="section-desc" style="margin:0 auto;text-align:center;font-size:12px;">
+        Cette formation est proposée à des fins exclusivement pédagogiques et éducatives. Elle ne constitue ni un conseil en investissement, ni une recommandation d'achat ou de vente. Les marchés financiers comportent un risque de perte en capital, et chaque décision d'investissement reste sous l'entière responsabilité du participant.
+      </p>
     </div>
- </div>
+  </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2026 DELTA Bootcamp — Goldmind Capital | DIENDA INVEST. Tous droits réservés. <br>
-    Les performances passées ne préjugent pas des performances futures. Le trading comporte un risque de perte en capital.</p>
+  <p>© 2026 DELTA Bootcamp — Goldmind Capital | DIENDA INVEST. Tous droits réservés.<br>
+  Les performances passées ne préjugent pas des performances futures. Le trading comporte un risque de perte en capital.</p>
 </footer>
 
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="closeLight()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:99999;align-items:center;justify-content:center;cursor:zoom-out;">
+  <img id="lightbox-img" src="" style="max-width:90vw;max-height:90vh;object-fit:contain;box-shadow:0 0 60px rgba(201,168,76,0.2);">
+</div>
+
 <script>
-  // Scroll reveal
+  function openLight(card) {
+    const img = card.querySelector('img');
+    document.getElementById('lightbox-img').src = img.src;
+    const lb = document.getElementById('lightbox');
+    lb.style.display = 'flex';
+  }
+  function closeLight() {
+    document.getElementById('lightbox').style.display = 'none';
+  }
+
   const reveals = document.querySelectorAll('.reveal');
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
